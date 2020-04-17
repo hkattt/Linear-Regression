@@ -25,12 +25,13 @@ class LinearRegression():
         self.m = float(len(self.X)) # number of training examples
 
     def plot_raw(self):
-        """ Plots raw data """
-        plt.scatter(self.X, self.Y) # plots all the data points
+        """ Plots raw data (training data) """
+        plt.scatter(self.X, self.Y, label="Training Data", color="grey") # plots all the data points
         # axis labels / title
-        plt.title("Years of Experience vs Salary")
-        plt.xlabel("Years of Experience")
+        plt.title("Working Experience vs Salary")
+        plt.xlabel("Working Experience (Years)")
         plt.ylabel("Salary ($)")
+        plt.legend()
         # displays figure
         plt.show()
 
@@ -47,18 +48,20 @@ class LinearRegression():
     def plot(self):
         """ Plots the raw data with the regression line """
         h = self.theta_1 * self.X + self.theta_0 # hypothesis function
-        plt.scatter(self.X, self.Y) # raw data
+        plt.scatter(self.X, self.Y, label="Training Data", color="grey") # raw data
         plt.plot([min(self.X), max(self.X)], [min(h), max(h)], label="Regression Line", color="red")  # regression line (hypothesis function)
         # axis labels / title
-        plt.title("Years of Experience vs Salary")
-        plt.xlabel("Years of Experience")
+        plt.title("Working Experience vs Salary")
+        plt.xlabel("Working Experience (Years)")
         plt.ylabel("Salary ($)")
         plt.legend()
         # displays figure
         plt.show()
 
-linear_regression = LinearRegression()
-#linear_regression.plot_raw()
+linear_regression = LinearRegression() # creates a LinearRegression object
+linear_regression.plot_raw()
 linear_regression.gradient_descent()
-print(linear_regression.theta_1, linear_regression.theta_0)
+# display theta values
+print("Theta 0: " + str(linear_regression.theta_0))
+print("Theta 1: " + str(linear_regression.theta_1))
 linear_regression.plot()
