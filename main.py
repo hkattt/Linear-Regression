@@ -10,7 +10,7 @@ plt.rcParams['figure.figsize'] = (12.0, 9.0)
 class LinearRegression():
     def __init__(self):
         # reading in data from the csv file
-        self.data = pd.read_csv("data_2.csv")
+        self.data = pd.read_csv("data.csv")
         # stores all the input data in a n * 1 dimensional vector
         self.X = self.data.iloc[:, 0]
         # stores all the expected outputs in a n * 1 dimensional vector
@@ -58,7 +58,7 @@ class LinearRegression():
         plt.show()
 
 linear_regression = LinearRegression()
-linear_regression.plot_raw()
+#linear_regression.plot_raw()
 linear_regression.gradient_descent()
 print(linear_regression.theta_1, linear_regression.theta_0)
 linear_regression.plot()
